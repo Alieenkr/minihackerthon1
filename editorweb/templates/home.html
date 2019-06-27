@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<form action="{% url 'home' %}" method="get">
+    <input placeholder="과목명(교수명)" type="text" name="q" value="{{ q }}">
+    <input type="submit" value="검색">
+</form>
+{% for person in person %}
+    <div class="person-items">
+        <div class="person-items-body">
+            <span class="person-subject">{{ person.subject }} ( {{ person.professor }} )</span>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
